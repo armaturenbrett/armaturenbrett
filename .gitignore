@@ -22,3 +22,9 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore widget specific data
+#/app/assets/stylesheets/widgets/*
+#/app/assets/javascript/widgets/*
+#/app/jobs/widgets/*
+#/app/views/widgets/*
