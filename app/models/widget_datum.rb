@@ -4,7 +4,7 @@ class WidgetDatum
   class_attribute :data
 
   require 'redis'
-  @redis = Redis.new
+  @redis ||= Redis.new
 
   def self.new(params)
     self.name = params[:name]
