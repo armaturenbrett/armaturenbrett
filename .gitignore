@@ -25,6 +25,6 @@
 
 # Ignore widget specific data
 /app/assets/stylesheets/widgets/*
-/app/assets/javascript/widgets/*
+/app/assets/javascripts/widgets/*
 /app/jobs/widgets/*
 /app/views/widgets/*
