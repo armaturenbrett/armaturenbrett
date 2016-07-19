@@ -1,24 +1,52 @@
-# README
+# Dashboard
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The beautiful full responsive uncompromising Dashboard for your metrics that matter.
 
-Things you may want to cover:
+This dashboard is developed with performance and minimalism in mind.
+It has a minimal set of dependencies – no relational database needed, only a Redis.
+Yet it is full featured with WebSocket technology for real-time streaming your data into the UI.
 
-* Ruby version
+## Getting started
 
-* System dependencies
+Clone this project.
+After that start integrating your widgets by copying or linking your `my_widget.*` files to the following locations.
 
-* Configuration
+```
+app/
+  +-- assets/
+  |   |
+  |   +-- stylesheets/
+  |   |   |
+  |   |   +-- widgets/
+  |   |       |
+  |   |       +-- my_widget.scss
+  |   |
+  |   +-- javascripts/
+  |       |
+  |       +-- widgets/
+  |           |
+  |           +-- my_widget.coffee
+  |-- jobs/
+  |   |
+  |   +-- widgets/
+  |       |
+  |       +-- my_widget.rb
+  |
+  +-- views/
+      |
+      +-- widgets/
+          |
+          +--_my_widget.slim
+```
 
-* Database creation
+It is now possible to render your widget.
+Therefore edit `app/view/application/dashboard.slim` to look like the following.
 
-* Database initialization
+```slim
+/ [...]
 
-* How to run the test suite
+.widget.width-2.height-2.pos-x-1.pos-y-1
+  = render 'widgets/my_widget'
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+/ [...]
+```
