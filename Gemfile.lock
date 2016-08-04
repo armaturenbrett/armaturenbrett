@@ -54,6 +54,8 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -79,6 +81,8 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    mustache-js-rails (2.0.6)
+      railties (>= 3.1, <= 5.1)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -171,9 +175,11 @@ DEPENDENCIES
   awesome_print
   byebug
   coffee-rails
+  font-awesome-rails
   jbuilder
   jquery-rails
   listen
+  mustache-js-rails
   puma
   rails
   redis

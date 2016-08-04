@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails'
+gem 'font-awesome-rails'
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'mustache-js-rails'
 gem 'puma'
 gem 'rails'
 gem 'redis'
