@@ -17,9 +17,8 @@ class WidgetDatum
   end
 
   def self.save
-    ActionCable.server.broadcast 'widget_data',
-                                 name: self.name,
-                                 data: self.data
+    ActionCable.server.broadcast "#{self.name}_widget",
+                                 self.data
     @redis.set(self.name, self.data.to_json)
   end
 

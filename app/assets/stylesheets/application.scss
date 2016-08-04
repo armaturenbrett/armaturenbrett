@@ -29,7 +29,7 @@ body {
   margin: 0;
   width: 100%;
 
-  div {
+  > div {
     border: $margin solid $dark;
     display: flex;
     flex-direction: column;
