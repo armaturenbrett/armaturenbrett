@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'coffee-rails'
 gem 'font-awesome-rails'
+gem 'gravatar_image_tag'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'mustache-js-rails'
