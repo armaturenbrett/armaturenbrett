@@ -2,6 +2,10 @@
 class WidgetDataChannel < ApplicationCable::Channel
   def subscribed
     stream_from "#{params[:widget]}_widget"
+
+    widget_datum = WidgetDatum.find(widget_name)
+    ActionCable.server.broadcast "#{widget_name}_widget",
+                                 widget_datum.data if widget_datum
   end
 
   def unsubscribed
