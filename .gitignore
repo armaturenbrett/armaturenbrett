@@ -27,5 +27,6 @@
 /app/assets/stylesheets/widgets/*
 /app/assets/javascripts/widgets/*
 /app/jobs/widgets/*
+/app/views/application/dashboard.slim
 /app/views/widgets/*
 /config/widgets/*
