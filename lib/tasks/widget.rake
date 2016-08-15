@@ -2,7 +2,7 @@ namespace :widget do
   desc 'installs a widget with the given name'
   task :install, [:widget] do |t, args|
     widget = args[:widget]
-    `widget_path=$(readlink -f ../#{widget})
+    `widget_path=$(realpath ../#{widget})
     ln -s "$widget_path/#{widget}.coffee" "app/assets/javascripts/widgets/#{widget}.coffee"
     ln -s "$widget_path/#{widget}.scss" "app/assets/stylesheets/widgets/#{widget}.scss"
     ln -s "$widget_path/#{widget}.rb" "app/jobs/widgets/#{widget}.rb"
