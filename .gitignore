@@ -30,3 +30,4 @@
 /app/views/application/dashboard.slim
 /app/views/widgets/*
 /config/widgets/*
+/config/locales/*
