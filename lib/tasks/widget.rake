@@ -7,7 +7,7 @@ namespace :widget do
     ln -s "$widget_path/#{widget}.scss" "app/assets/stylesheets/widgets/#{widget}.scss"
     ln -s "$widget_path/#{widget}.rb" "app/jobs/widgets/#{widget}.rb"
     ln -s "$widget_path/#{widget}.slim" "app/views/widgets/_#{widget}.slim"
-    touch "config/widgets/#{widget}.yml"`
+    cp "$widget_path/#{widget}.yml" "config/widgets/#{widget}.yml"`
 
     puts "\nrender your widget in app/views/application/dashboard.slim with something like the following:\n\n\t" \
          "= render 'widgets/#{widget}'\n\n"
