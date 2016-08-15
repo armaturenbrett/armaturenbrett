@@ -28,3 +28,4 @@
 /app/assets/javascripts/widgets/*
 /app/jobs/widgets/*
 /app/views/widgets/*
+/config/widgets/*
