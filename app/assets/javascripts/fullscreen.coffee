@@ -1,4 +1,5 @@
 class Fullscreen
+
   constructor: ->
     this.enabled = false
     this.body = $('body')[0]
@@ -25,4 +26,5 @@ class Fullscreen
 $(document).ready ->
   window.fullscreen = new Fullscreen()
   $('*').on 'click', ->
-    window.fullscreen.enable()
+    window.fullscreen.enable() unless window.fullscreen.enabled
+    window.fullscreen.disable() if window.fullscreen.enabled
