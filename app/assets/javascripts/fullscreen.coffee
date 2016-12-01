@@ -9,25 +9,17 @@ class Fullscreen
 
   enable: ->
     body = this.body
-    if body.requestFullscreen
-      body.requestFullscreen()
-    else if body.webkitRequestFullscreen
-      body.webkitRequestFullscreen()
-    else if body.mozRequestFullScreen
-      body.mozRequestFullScreen()
-    else if body.msRequestFullscreen
-      body.msRequestFullscreen()
+    body.requestFullscreen() if body.requestFullscreen
+    body.webkitRequestFullscreen() if body.webkitRequestFullscreen
+    body.mozRequestFullScreen() if body.mozRequestFullScreen
+    body.msRequestFullscreen() if body.msRequestFullscreen
     this.enabled = true
 
   disable: ->
-    if document.exitFullscreen
-      document.exitFullscreen()
-    else if document.webkitExitFullscreen
-      document.webkitExitFullscreen()
-    else if document.mozCancelFullScreen
-      document.mozCancelFullScreen()
-    else if document.msExitFullscreen
-      document.msExitFullscreen()
+    document.exitFullscreen() if document.exitFullscreen
+    document.webkitExitFullscreen() if document.webkitExitFullscreen
+    document.mozCancelFullScreen() if document.mozCancelFullScreen
+    document.msExitFullscreen() if document.msExitFullscreen
     this.enabled = false
 
 $(document).ready ->
