@@ -14,5 +14,8 @@ namespace :armaturenbrett do
     `git update-index --assume-unchanged config/widgets`
     `rm -rf config/widgets`
     `cd config && ln -s ../../config/widgets widgets`
+
+    `mv app/assets/stylesheets/overwrite.scss ../config/`
+    `cd app/assets/stylesheets/ && ln -s ../../../../config/overwrite.scss overwrite.scss`
   end
 end
