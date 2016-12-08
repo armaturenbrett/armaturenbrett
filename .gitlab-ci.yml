@@ -1,0 +1,21 @@
+image: 'ruby:2.3.3'
+
+cache:
+  paths:
+    - .bundle
+    - vendor/
+  key: "22424132f82137b9dc0bca91b771cf08"
+
+before_script:
+  - gem install bundler --no-ri --no-rdoc
+  - RAILS_ENV=test bundle install --path vendor/
+
+stages:
+  - mirror
+
+mirror:
+  stage: mirror
+  script:
+    - bin/mirror
+  only:
+    - master
