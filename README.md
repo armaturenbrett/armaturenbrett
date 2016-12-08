@@ -2,51 +2,71 @@
 
 The beautiful full responsive uncompromising Dashboard for your metrics that matter.
 
-This dashboard is developed with performance and minimalism in mind.
-It has a minimal set of dependencies – no relational database needed, only a Redis.
-Yet it is full featured with WebSocket technology for real-time streaming your data into the UI.
+This dashboard is developed with performance and minimalism in mind. It has a minimal set of dependencies – no relational database needed, only a Redis. Yet it is full featured with WebSocket technology for real-time streaming your data into the UI.
 
 ## Getting started
 
-Clone this project.
-After that start integrating your widgets by copying or linking your `my_widget.*` files to the following locations.
+Clone this project. And then one of the widgets from the [Armaturenbrett organisation](https://github.com/armaturenbrett). Your folder structure may look like this:
 
 ```
-app/
-  +-- assets/
+container_folder/
+  +-- armaturenbrett/
   |   |
-  |   +-- stylesheets/
+  |   +-- app/
   |   |   |
-  |   |   +-- widgets/
-  |   |       |
-  |   |       +-- my_widget.scss
+  |   |   ...
   |   |
-  |   +-- javascripts/
-  |       |
-  |       +-- widgets/
-  |           |
-  |           +-- my_widget.coffee
-  |-- jobs/
+  |   ...
+  | 
+  |-- time/
   |   |
-  |   +-- widgets/
-  |       |
-  |       +-- my_widget.rb
+  |   ...
+  | 
+  |-- weather/
+  |   |
+  |   ...
   |
-  +-- views/
-      |
-      +-- widgets/
-          |
-          +--_my_widget.slim
+  ...
 ```
 
-It is now possible to render your widget.
-Therefore edit `app/view/application/dashboard.slim` to look like the following.
 
-```slim
-/ [...]
+`cd` into the Armaturenbrett repo and init your setup:
 
-.widget.width-2.height-2.pos-x-1.pos-y-1
-  = render 'widgets/my_widget'
-
-/ [...]
 ```
+rails armaturenbrett:init
+```
+
+And then install the widget(s) you cloned besides the Armaturenbrett repo:
+
+```
+rails widget:install[WIDGET_NAME]
+```
+
+Your folder structure now contains `config` folder:
+
+```
+container_folder/
+  +-- armaturenbrett/
+  |   |
+  |   +-- app/
+  |   |   |
+  |   |   ...
+  |   |
+  |   ...
+  |
+  |-- config/
+  |   |
+  |   ...
+  |
+  |-- time/
+  |   |
+  |   ...
+  | 
+  |-- weather/
+  |   |
+  |   ...
+  |
+  ...
+```
+
+This config folder holds everything you need to set up. For instance open the `dashboard.slim` file and render the installed widgets. The install process' output or the widget's README will help you. 
