@@ -1,21 +1,11 @@
 namespace :armaturenbrett do
   desc "initializes the armaturenbrett including the structure of parent directory"
   task init: :environment do
-    `cd .. && git init`
-
     `mkdir -p ../config`
     `mkdir -p ../config/widgets`
     `mkdir -p ../config/locales`
 
-    `git update-index --assume-unchanged app/views/application/dashboard.slim`
-    `mv app/views/application/dashboard.slim ../config/`
-    `cd app/views/application && ln -s ../../../../config/dashboard.slim dashboard.slim`
-
-    `git update-index --assume-unchanged config/widgets`
-    `rm -rf config/widgets`
-    `cd config && ln -s ../../config/widgets widgets`
-
-    `mv app/assets/stylesheets/overwrite.scss ../config/`
-    `cd app/assets/stylesheets/ && ln -s ../../../../config/overwrite.scss overwrite.scss`
+    `cp app/views/application/dashboard.slim.example ../config/dashboard.slim`
+    `cp app/assets/stylesheets/dashboard.scss.example ../config/dashboard.scss`
   end
 end
