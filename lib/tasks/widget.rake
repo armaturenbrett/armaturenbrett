@@ -2,29 +2,33 @@ namespace :widget do
   desc 'installs a widget with the given name'
   task :install, [:widget] do |t, args|
     widget = args[:widget]
-    `widget_path=$(realpath ../#{widget.tr('_', '-')})
-    ln -s "$widget_path/#{widget}.coffee" "app/assets/javascripts/widgets/#{widget}.coffee"
-    ln -s "$widget_path/#{widget}.scss" "app/assets/stylesheets/widgets/#{widget}.scss"
-    ln -s "$widget_path/#{widget}.rb" "app/jobs/widgets/#{widget}.rb"
-    ln -s "$widget_path/#{widget}.slim" "app/views/widgets/_#{widget}.slim"
-    cp "$widget_path/locales/"*#{widget}.yml "config/locales/"
-    cp "$widget_path/#{widget}.yml" "config/widgets/#{widget}.yml"`
+    `cd ../config/javascripts && ln -vs ../../#{widget}/#{widget}.coffee`
+    `cd ../config/stylesheets && ln -vs ../../#{widget}/#{widget}.scss`
+    `cd ../config/jobs && ln -vs ../../#{widget}/#{widget}.rb`
+    `cd ../config/views/widgets && ln -vs ../../../#{widget}/#{widget}.slim`
+    `cd ../config/widgets && ln -vs ../../#{widget}/#{widget}.yml`
 
-    puts "\nrender your widget in app/views/application/dashboard.slim with something like the following:\n\n\t" \
+    `cp -v ../#{widget}/#{widget}.yml ../config/widgets/`
+    `cp -v ../#{widget}/locales/*#{widget}.yml ../config/locales/`
+
+    puts "\nrender your widget in ../config/views/dashboard.slim with something like the following:\n\n\t" \
          "= render 'widgets/#{widget}'\n\n"
   end
 
   desc 'uninstalls a widget with the given name'
   task :uninstall, [:widget] do |t, args|
     widget = args[:widget]
-    `rm "app/assets/javascripts/widgets/#{widget}.coffee"
-    rm "app/assets/stylesheets/widgets/#{widget}.scss"
-    rm "app/jobs/widgets/#{widget}.rb"
-    rm "app/views/widgets/_#{widget}.slim"
-    rm "config/locales/"*#{widget}.yml
-    rm "config/widgets/#{widget}.yml"`
 
-    puts "\nremove your widget rendering from app/views/application/dashboard.slim which could like the following:\n\n\t" \
+    `rm -v ../config/javascripts/#{widget}.coffee`
+    `rm -v ../config/stylesheets/#{widget}.scss`
+    `rm -v ../config/jobs/#{widget}.rb`
+    `rm -v ../config/views/widgets/#{widget}.slim`
+    `rm -v ../config/widgets/#{widget}.yml`
+
+    `rm -v ../config/widgets/#{widget}.yml`
+    `rm -v ../config/locales/*#{widget}.yml`
+
+    puts "\nremove your widget rendering from ../config/views/dashboard.slim which could look like the following:\n\n\t" \
          "= render 'widgets/#{widget}'\n\n"
   end
 

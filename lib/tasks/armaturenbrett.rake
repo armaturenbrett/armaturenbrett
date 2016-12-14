@@ -2,7 +2,10 @@ namespace :armaturenbrett do
   desc "initializes the armaturenbrett including the structure of parent directory"
   task init: :environment do
     `mkdir -p ../config`
+    `mkdir -p ../config/jobs`
     `mkdir -p ../config/views`
+    `mkdir -p ../config/views/widgets`
+    `mkdir -p ../config/javascripts`
     `mkdir -p ../config/stylesheets`
     `mkdir -p ../config/widgets`
     `mkdir -p ../config/locales`

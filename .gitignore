@@ -25,10 +25,8 @@
 
 # Ignore widget specific data
 /app/assets/stylesheets/widgets/*
-/app/assets/stylesheets/overwrite.scss
 /app/assets/javascripts/widgets/*
 /app/jobs/widgets/*
-/app/views/application/dashboard.slim
 /app/views/widgets/*
 /config/widgets/*
 /config/locales/*
