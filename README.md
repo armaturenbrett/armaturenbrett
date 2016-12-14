@@ -77,7 +77,7 @@ to any desired origin.
 
 ## Install a widget
 
-Simply adding a widget as a Git submodule and install it with the Rails task.
+Simply add a widget as a Git submodule and install it with the Rails task.
 
 ```
 git submodule add git@example.com:mywidget.git
