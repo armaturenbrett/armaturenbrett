@@ -5,7 +5,7 @@ namespace :widget do
     puts `cd ../config/javascripts && ln -v -s ../../#{widget}/#{widget}.coffee`
     puts `cd ../config/stylesheets && ln -v -s ../../#{widget}/#{widget}.scss`
     puts `cd ../config/jobs && ln -v -s ../../#{widget}/#{widget}.rb`
-    puts `cd ../config/views/widgets && ln -v -s ../../../#{widget}/#{widget}.slim`
+    puts `cd ../config/views/widgets && ln -v -s ../../../#{widget}/#{widget}.slim _#{widget}.slim`
 
     puts `cp -v ../#{widget}/#{widget}.yml ../config/widgets/`
     puts `cp -v ../#{widget}/locales/*#{widget}.yml ../config/locales/`
