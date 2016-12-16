@@ -17,6 +17,7 @@ gem 'rufus-scheduler'
 gem 'sass-rails'
 gem 'slim-rails'
 gem 'sqlite3'
+gem 'therubyracer'
 gem 'turbolinks'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier'
