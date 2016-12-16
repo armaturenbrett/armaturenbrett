@@ -3,9 +3,6 @@ class WidgetDatum
   class_attribute :name
   class_attribute :data
 
-  require 'redis'
-  @redis ||= Redis.new
-
   def self.new(params)
     self.name = params[:name]
     self.data = params[:data]
@@ -13,7 +10,7 @@ class WidgetDatum
   end
 
   def self.all
-    @redis.hgetall('*')
+    $redis.hgetall('*')
   end
 
   def self.save
@@ -23,7 +20,7 @@ class WidgetDatum
   end
 
   def self.save_without_broadcast
-    @redis.set(self.name, self.data.to_json)
+    $redis.set(self.name, self.data.to_json)
   end
 
   def self.update(params)
@@ -32,13 +29,13 @@ class WidgetDatum
   end
 
   def self.find(name)
-    data = @redis.get(name)
+    data = $redis.get(name)
     return nil unless data
     data = JSON.parse(data) rescue nil
     WidgetDatum.new(name: name, data: data)
   end
 
   def self.destroy
-    @redis.del(self.name)
+    $redis.del(self.name)
   end
 end
