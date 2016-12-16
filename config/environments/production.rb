@@ -83,4 +83,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  if ENV['RAILS_RELATIVE_URL_ROOT'].present?
+    config.root_directory = ENV['RAILS_RELATIVE_URL_ROOT']
+    config.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
+    config.action_controller.relative_url_root = ENV['RAILS_RELATIVE_URL_ROOT']
+    config.assets.prefix = "#{ENV['RAILS_RELATIVE_URL_ROOT']}/assets"
+  end
 end
