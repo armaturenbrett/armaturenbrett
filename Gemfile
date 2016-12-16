@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 gem 'coffee-rails'
+gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gravatar_image_tag'
 gem 'icalendar'
