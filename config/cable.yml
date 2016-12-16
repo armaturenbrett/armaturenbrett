@@ -5,5 +5,4 @@ test:
   adapter: async
 
 production:
-  adapter: redis
-  url: redis://localhost:6379/<%= ENV['REDIS_DB'] %>
+  adapter: async
