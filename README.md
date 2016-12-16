@@ -63,6 +63,14 @@ bundle exec foreman start
 
 in order to launch your dashboard.
 
+Generate an authentification token by running
+
+```
+bundle exec rails armaturenbrett:generate_auth_token
+```
+
+to be able to acces your dashboard under `https://example.com/?auth_token=123456789abcdef`
+
 # Production deployment
 
 Commit your configuration of `mydashboard` at will and deploy it with
