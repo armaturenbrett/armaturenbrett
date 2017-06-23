@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate
     return render nothing: true,
-                  status: :forbidden unless $redis.hget('auth_tokens', params[:auth_token])
+                  status: :forbidden unless ENV['AUTH_TOKEN'] == params[:auth_token]
   end
 
   def set_locale

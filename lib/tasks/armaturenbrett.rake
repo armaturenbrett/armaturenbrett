@@ -17,7 +17,6 @@ namespace :armaturenbrett do
   desc "generates an authentification token"
   task generate_auth_token: :environment do
     auth_token = SecureRandom.hex
-    $redis.hset('auth_tokens', auth_token, Time.zone.now)
     puts auth_token
   end
 end
