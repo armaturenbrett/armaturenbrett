@@ -1,10 +1,10 @@
-image: 'ruby:2.3.3'
+image: 'ruby:2.4.3'
 
 cache:
   paths:
     - .bundle
     - vendor/
-  key: "22424132f82137b9dc0bca91b771cf08"
+  key: "3bf4b783174b4fca10b26487f370d2aa"
 
 before_script:
   - gem install bundler --no-ri --no-rdoc
